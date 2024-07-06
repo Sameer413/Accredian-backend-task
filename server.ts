@@ -16,8 +16,8 @@ app.use(
   })
 );
 
-app.route("/").get((res: Response) => {
-  res.status(200).json({
+app.route("/").get((req: Request, res: Response) => {
+  return res.status(200).json({
     success: true,
     message: "Server is Working",
   });
