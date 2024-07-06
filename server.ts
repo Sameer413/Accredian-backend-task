@@ -12,6 +12,7 @@ app.use(express.json());
 const allowedOrigins = [
   "http://localhost:3000",
   process.env.FRONTEND_URL || "",
+  "https://accredian-frontend-task-2lq5w6wj9-sameer844s-projects.vercel.app",
 ];
 
 const corsOptions = {
