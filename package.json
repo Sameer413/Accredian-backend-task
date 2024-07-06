@@ -5,7 +5,8 @@
   "scripts": {
     "start": "nodemon server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node-dev server.ts"
+    "dev": "ts-node-dev server.ts",
+    "build": "prisma generate && tsc"
   },
   "keywords": [],
   "author": "",
