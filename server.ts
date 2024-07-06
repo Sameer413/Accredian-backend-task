@@ -10,11 +10,18 @@ dotenv.config();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000", process.env.FRONTEND_URL!],
+    origin: ["http://localhost:3000", process.env.FRONTEND_URL || "", "*"],
     methods: ["GET", "POST", "PUT", "DELETE"], // Add any other methods you need
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
+app.route("/").get((res: Response) => {
+  res.status(200).json({
+    success: true,
+    message: "Server is Working",
+  });
+});
 
 app.route("/create-referral").post(async (req: Request, res: Response) => {
   const {
