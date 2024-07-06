@@ -39,6 +39,7 @@ const corsOptions = {
 }
 
 app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 app.route("/").get((req: Request, res: Response) => {
   return res.status(200).json({
