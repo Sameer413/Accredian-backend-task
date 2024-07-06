@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model referrals {
+  id                    String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  referrer_name         String?  @db.VarChar
+  referrer_email        String?  @db.VarChar
+  referrer_phone        String?  @db.VarChar
+  referrer_relationship String?  @db.VarChar
+  referee_name          String?  @db.VarChar
+  referee_email         String?  @db.VarChar
+  referee_phone         String?  @db.VarChar
+  course_interest       String?  @db.VarChar
+  message               String?
+  created_at            DateTime @default(now()) @db.Timestamptz(6)
+}
