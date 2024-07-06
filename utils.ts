@@ -26,10 +26,16 @@ export const sendEmail = async ({ email, subject, text }: OptionDataType) => {
     const transporter = nodeMailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT),
+      // secure: false,
+      // auth: {
+      //   // user: process.env.SMTP_Auth_Email,
+      //   // pass: process.env.SMTP_Auth_Password,
+      // },
+      service: "gmail",
       secure: false,
       auth: {
-        user: process.env.SMTP_Auth_Email,
-        pass: process.env.SMTP_Auth_Password,
+        user: "smilesdelivery.in@gmail.com",
+        pass: "kqwb bdcr zbii ydut",
       },
     });
 
